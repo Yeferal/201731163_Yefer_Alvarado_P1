@@ -10,9 +10,17 @@ app.set('port', 3000);
 //rutas
 
 app.get('/',(req,res)=>{
-    res.render('index');
+    res.render('page-usuario');
 });
 
+app.get('/moore',(req,res)=>{
+    res.render('page-diagramas');
+});
+
+
+app.get('/analizador',(req,res)=>{
+    res.render('page-analizador');
+});
 
 app.get('/gola',(req,res)=>{
     res.sendFile(__dirname+"/views/index.html");
