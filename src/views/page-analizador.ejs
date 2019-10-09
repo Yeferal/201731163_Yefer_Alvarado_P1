@@ -8,12 +8,21 @@
     <body>
       <% include bloque/navegacion.html %>
     
-      <form action="#" method="POST" enctype="multipart/form-data"
+      <form action="#" method="GET" enctype="multipart/form-data"
       <label for="fichero">TEXTO</label><br>
       <input type="file" name="fichero" value="Selecionar" id="btn" class="btn" required /><br>
       </form>
         
+      <form action="/uno" method="GET" enctype="multipart/form-data"
+      <label for="texto">TEXTO</label><br>
+      <input type="text" name="texto" id="btn" class="btn" required /><br>
+      <input type="submit" name="bote" value="Analizar"/>
+      </form>
     
+
+      <% console.log("Estamo en Analizador"); 
+          
+      %>
       <script>
         
       </script>

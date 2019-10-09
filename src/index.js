@@ -17,6 +17,12 @@ app.get('/moore',(req,res)=>{
     res.render('page-diagramas');
 });
 
+app.get('/uno',(req,res)=>{
+    req.get('dato');
+    
+    res.render('page-diagramas');
+});
+
 
 app.get('/analizador',(req,res)=>{
     res.render('page-analizador');

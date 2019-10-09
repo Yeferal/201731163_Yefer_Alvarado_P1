@@ -4,7 +4,7 @@
   "description": "practica 1 node js",
   "main": "index.js",
   "scripts": {
-    "dev": "node src",
+    "dev": "nodemon src",
     "start": "node src"
   },
   "author": "Yefer",
