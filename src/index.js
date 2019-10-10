@@ -1,13 +1,25 @@
 //import
 const express = require('express');
 const app = express();
+const bodyParser = require("body-parser");
 
 //configuracion
 app.set('view engine', 'ejs');
+// app.use(express.static(path.join(__dirname,'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('views',__dirname+'/views')
 app.set('port', 3000);
 
+
+// app.use(express.static(path.join(__dirname,'public')));
 //rutas
+
+app.post('/mo',(req,res)=>{
+    var nombres = req.body.nombre1;
+    console.log("Nombre: "+nombres);
+    res.render('page-analizador');
+});
 
 app.get('/',(req,res)=>{
     res.render('page-usuario');

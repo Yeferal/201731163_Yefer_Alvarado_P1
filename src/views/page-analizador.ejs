@@ -3,28 +3,62 @@
   <head>
     <meta charset="utf-8">
     <title>Practica_1</title>
+    <% include bloque/head.html %>
   </head>
   
     <body>
       <% include bloque/navegacion.html %>
     
-      <form action="#" method="GET" enctype="multipart/form-data"
-      <label for="fichero">TEXTO</label><br>
-      <input type="file" name="fichero" value="Selecionar" id="btn" class="btn" required /><br>
+      <form action="/mo" method="POST" enctype="multipart/form-data">
+      <!-- <input type="file" name="fichero" value="Selecionar" id="btn" class="btn" required /><br> -->
+      <input type="text" name="nombre1"/>
+      <input type="submit" name="nombre" value="Analizar"/>
       </form>
         
-      <form action="/uno" method="GET" enctype="multipart/form-data"
-      <label for="texto">TEXTO</label><br>
-      <input type="text" name="texto" id="btn" class="btn" required /><br>
-      <input type="submit" name="bote" value="Analizar"/>
-      </form>
+
+
+
+
+
+
     
+      <form action="/uno" method="GET" id="formulario"  enctype="multipart/form-data">
+      <input type="file" id="file-input" />
+      <h3>Contenido del archivo:</h3>
+      <pre id="contenido-archivo"></pre>
+
 
       <% console.log("Estamo en Analizador"); 
           
       %>
-      <script>
+
+    <script type="text/javascript"">
+    
+        function leerArchivo(e) {
+        var archivo = e.target.files[0];
+        if (!archivo) {
+          return;
+        }
+        var lector = new FileReader();
+        lector.onload = function(e) {
+          var contenido = e.target.result;
+          mostrarContenido(contenido);
+        };
+        lector.readAsText(archivo);
+      }
+      
+      function mostrarContenido(contenido) {
         
-      </script>
+        var elemento = document.getElementById('contenido-archivo');
+        // formulario.innerHTML = "<input type=\"submit\" name=\"bote\" value=\"Analizar\"/><br>"+"</form>";
+        elemento.innerHTML = contenido;
+      }
+      
+      document.getElementById('file-input')
+        .addEventListener('change', leerArchivo, false);
+    </script>
+    
+    <!-- <script type="text/javascript" src="/src/public/leer.js"></script> -->
+
     </body>
 </html>
