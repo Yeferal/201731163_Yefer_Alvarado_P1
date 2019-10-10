@@ -22,7 +22,7 @@
 
 
     
-      <form action="/uno" method="GET" id="formulario"  enctype="multipart/form-data">
+      <form action="/analizador" method="GET" id="formulario"  enctype="multipart/form-data">
       <input type="file" id="file-input" />
       <h3>Contenido del archivo:</h3>
       <pre id="contenido-archivo"></pre>
@@ -31,34 +31,8 @@
       <% console.log("Estamo en Analizador"); 
           
       %>
-
-    <script type="text/javascript"">
     
-        function leerArchivo(e) {
-        var archivo = e.target.files[0];
-        if (!archivo) {
-          return;
-        }
-        var lector = new FileReader();
-        lector.onload = function(e) {
-          var contenido = e.target.result;
-          mostrarContenido(contenido);
-        };
-        lector.readAsText(archivo);
-      }
-      
-      function mostrarContenido(contenido) {
-        
-        var elemento = document.getElementById('contenido-archivo');
-        // formulario.innerHTML = "<input type=\"submit\" name=\"bote\" value=\"Analizar\"/><br>"+"</form>";
-        elemento.innerHTML = contenido;
-      }
-      
-      document.getElementById('file-input')
-        .addEventListener('change', leerArchivo, false);
-    </script>
-    
-    <!-- <script type="text/javascript" src="/src/public/leer.js"></script> -->
+    <script src="./leer.js"></script>
 
     </body>
 </html>

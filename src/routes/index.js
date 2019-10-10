@@ -1,15 +1,18 @@
-
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
-router.get('/',(req,res) => {
-    res.render('index',{max:15});
+
+app.get('/',(req,res)=>{
+    res.render('page-usuario');
 });
 
-router.get('/hola',(req,res) => {
-    //res.sendFile(path.join(__dirname,'/views/saludo.html'));
-    res.render('saludo');
+app.get('/moore',(req,res)=>{
+    res.render('page-diagramas');
 });
+
+app.get('/analizador',(req,res)=>{
+    res.render('page-analizador');
+});
+
 
 module.exports = router;
