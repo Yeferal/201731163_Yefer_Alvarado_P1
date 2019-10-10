@@ -15,7 +15,34 @@ app.set('port', 3000);
 // app.use(express.static(path.join(__dirname,'public')));
 //rutas
 
+
+app.get('/mo',(req,res)=>{
+
+    var nombres = req.params.nombre1;
+    console.log("Nombre: "+nombres);
+    res.render('page-analizador');
+});
+
+
 app.post('/mo',(req,res)=>{
+
+    function leerArchivo(e) {
+        var archivo = e.target.files[0];
+        if (!archivo) {
+          return;
+        }
+        var lector = new FileReader();
+        lector.onload = function(e) {
+          var contenido = e.target.result;
+          mostrarContenido(contenido);
+        };
+        lector.readAsText(archivo);
+      }
+      
+      function mostrarContenido(contenido) {
+          console.log(contenido);
+      }
+
     var nombres = req.body.nombre1;
     console.log("Nombre: "+nombres);
     res.render('page-analizador');
