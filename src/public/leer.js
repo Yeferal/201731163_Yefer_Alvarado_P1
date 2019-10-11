@@ -15,8 +15,9 @@ function mostrarContenido(contenido) {
   
   var elemento = document.getElementById('contenido-archivo');
   // formulario.innerHTML = "<input type=\"submit\" name=\"bote\" value=\"Analizar\"/><br>"+"</form>";
-  elemento.innerHTML =elemento.innerHTML+  "<input type=\"submit\" name=\"bote\" value=\"Analizar\"/><br>"+"</form>"+contenido;
+  elemento.innerHTML =contenido;
+  document.getElementById('getButton').style.display = 'inline';
 }
 
-document.getElementById('file-input')
+document.getElementById('fileinput')
   .addEventListener('change', leerArchivo, false);

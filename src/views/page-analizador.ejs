@@ -9,11 +9,7 @@
     <body>
       <% include bloque/navegacion.html %>
     
-      <form action="/mo" method="GET" enctype="multipart/form-data">
-      <!-- <input type="file" name="fichero" value="Selecionar" id="btn" class="btn" required /><br> -->
-      <input type="text" name="nombre1" id="nombre1"/>
-      <input type="submit" name="nombre" value="Analizar"/>
-      </form>
+    
         
 
 
@@ -22,17 +18,23 @@
 
 
     
-      <form action="/analizador" method="GET" id="formulario"  enctype="multipart/form-data">
-      <input type="file" id="file-input" />
+      <form action="/mo" method="POST" id="formulario"  enctype="multipart/form-data">
+      <input type="file" id="fileinput" (change)="onFileChange($event)"/>
       <h3>Contenido del archivo:</h3>
-      <pre id="contenido-archivo"></pre>
+      <pre id="contenido-archivo1"></pre>
+      <textarea name="contenido-archivo" id="contenido-archivo" cols="60" rows="20" disabled="true">
+
+      </textarea><br>
+      <input type="button" name="bote" id="getButton" value="Analizar" style="display:none"/><br>
+    </form>
+      
 
 
       <% console.log("Estamo en Analizador"); 
           
       %>
-    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./leer.js"></script>
-
+    <script src="./enviar.js"></script>
     </body>
 </html>

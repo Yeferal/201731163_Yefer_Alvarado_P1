@@ -14,17 +14,27 @@ function encadenar(){
     var nombre= document.getElementById("nombre1");
     cadena=(nombre.value).split("");
     posicion=0;
+    
     // alert("nombre: "+cadena);
     
-    verificarEstoA(cadena[posicion]);
+    // verificarEstoA(cadena[posicion]);
 }
+module.exports.capturar = function(texto1){
+    texto=texto1;
+    cadena = texto.split("");
+    posicion=0;
+    console.log("nombre: "+cadena);
+    // document.write('Holllliiiiis');
+    // verificarEstoA();
+}
+
 function verificarEstoFinal(){
     if(verificarTamanio){
         console.log("tamino1: "+cadena.length);
         console.log("tamino2: "+posicion);
         verificarEstoA(cadena[posicion]);
     }else{
-        alert("Todo termino");
+        console.log("Todo termino");
     }
 }
 
@@ -32,7 +42,7 @@ function verificarTamanio(){
     if(posicion<cadena.length){
         return true;
     }
-    alert("Termino");
+    console.log("Termino");
     return false;
 }
 
