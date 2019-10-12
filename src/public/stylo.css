@@ -1,4 +1,13 @@
 body{
     background: #009407;
     color: #000000;
+
+}
+.caja{
+    
+    background: #ff9305;
+    width: 700px;
+    text-align:center;
+    border: #000000 2px;
+    border-block: 2px;
 }

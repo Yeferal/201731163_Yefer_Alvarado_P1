@@ -107,6 +107,23 @@ function verificarEstoA(letra){
                     posicion++;
                     verificarEstoFinal();
             break;
+        case "V":
+                    if(cadena[posicion]==="V" && cadena[posicion+1]==="E" && cadena[posicion+2]==="R" && cadena[posicion+3]==="D" && cadena[posicion+4]==="A" && cadena[posicion+5]==="D" && cadena[posicion+6]==="E" && cadena[posicion+7]==="R" && cadena[posicion+8]==="O"){
+                        posicion = posicion+8;
+                        console.log("Es VERDADERO Booleano");
+                    }else{
+                        estado51(cadena[posicion]);
+                    }
+            break;
+        case "F":
+                if(cadena[posicion]==="F" && cadena[posicion+1]==="A" && cadena[posicion+2]==="L" && cadena[posicion+3]==="S" && cadena[posicion+4]==="O"){
+                    posicion = posicion+4;
+                    console.log("Es FALSO Booleano");
+                }else{
+                    estado51(cadena[posicion]);
+                }
+    
+            break;
         default:
             if(estado46(cadena[posicion])){
                 posicion++;

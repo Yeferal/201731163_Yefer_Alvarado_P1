@@ -4,8 +4,9 @@ const router = express.Router();
 router.use(express.json());
 const path = require('path');
 const analisis = require('./verificacion');
+var arreglo;
 
-//utilizaremos router para las rutas ya no app
+//router para las rutas
 router.get('/', (req, res) => {
     res.render('page-usuario', { max: 15 });
 });
@@ -21,38 +22,37 @@ router.get('/analizador',(req,res)=>{
 
 
 //ruta para analizar el texto
-router.post('/postusers', (req, res) => {
+router.post('/solicitar', (req, res) => {
     console.log("recibo usuario");
     
-    var arreglo = req.body.text;
+    arreglo = req.body.text;
 
     var arreglo1 =arreglo.split("");
 
     analisis.capturar(arreglo1);
 
     res.render('page-analizador', { max: 15 });
-    //res.status(400).send('wrong');
 });
 
-router.get('/users', (req, res) => {
-    console.log("envio usuario");
+router.get('/obtener', (req, res) => {  
+    
 
-    setTimeout(() => {
-        res.status(400).json({
-            usurio: 'oliver',
-            id: '4',
-            carne: '202'
+    setTimeout(()=>{
+        res.status(200).json({
+            usuario: 'Yefer',
+            id: arreglo,
+            carne: '200'
         });
-    }, 4500);
-    /*
-        setTimeout(() => {
-            res.status(200).json({ usuario: 'oliver sierra' });
-        }, 3500);*/
+    }, 35 );
 });
-//ruta que envia a la informacion del estudiante
+
+
 router.get('/', (req, res) => {
     res.render('page-usuario', { max: 15 });
 
 });
+
+
+
 
 module.exports = router;
