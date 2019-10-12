@@ -51,7 +51,23 @@ router.post('/postusers', (req, res) => {
     console.log("recibo usuario");
     //console.log(req.body.text);
     //var tonken = analisis(capturar);
-    analisis.capturar(req.body.text);
+    
+    var arreglo = req.body.text;
+    // var arreglo1 =arreglo.split("\n").map(function(line) {
+    //     return line.split(",");
+    // });
+    var arreglo1 =arreglo.split("");
+    var textocadena =arreglo1.toString();
+    
+    //console.log(arreglo1);
+    var encadenado = textocadena.split("");
+
+
+
+    // console.log(encadenado);
+    
+    analisis.capturar(arreglo1);
+
     res.render('page-analizador', { max: 15 });
     //res.status(400).send('wrong');
 });

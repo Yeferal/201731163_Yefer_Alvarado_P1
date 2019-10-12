@@ -21,19 +21,22 @@ function encadenar(){
 }
 module.exports.capturar = function(texto1){
     texto=texto1;
-    cadena = texto.split("");
+    cadena = texto;
     posicion=0;
-    console.log("nombre: "+cadena);
+    console.log(cadena);
     // document.write('Holllliiiiis');
-    // verificarEstoA();
+    verificarEstoA(cadena[0]);
 }
 
+
 function verificarEstoFinal(){
-    if(verificarTamanio){
+    if(posicion<cadena.length){
+        console.log(verificarTamanio);
         console.log("tamino1: "+cadena.length);
         console.log("tamino2: "+posicion);
         verificarEstoA(cadena[posicion]);
     }else{
+        console.log(verificarTamanio);
         console.log("Todo termino");
     }
 }
@@ -48,6 +51,7 @@ function verificarTamanio(){
 
 function verificarEstoA(letra){
 
+    console.log("h:"+letra+":h");
     switch (letra) {
         case "b":
             
@@ -82,8 +86,13 @@ function verificarEstoA(letra){
         case "s":
                 if(cadena[posicion+2]==="n"){
                     estado32(cadena[posicion]);
-                }else{
+                
+                }else if(cadena[posicion+1]==="i"){
+                    console.log(cadena[posicion]+cadena[posicion+1])
                     estado31(cadena[posicion]);
+                }
+                else{
+                    estado51(cadena[posicion]);
                 }
                 
             
@@ -93,25 +102,58 @@ function verificarEstoA(letra){
                 
             estado1(cadena[posicion]);
             break;
-            case "":
+        case '':
+                console.log("sin espacion");
                     if(verificarTamanio){
                         posicion++;
                         verificarEstoFinal();
                     }else{
-                        alert("fallo");
+                        console.log("fallo");
                     }
             break;
-            case " ":
+        case ' ':
+                console.log("especio");
                     if(verificarTamanio){
                         posicion++;
                         verificarEstoFinal();
                     }else{
-                        alert("fallo");
+                        console.log("fallo");
                     }
             break
+        case "\n":
+                    posicion++;
+                    verificarEstoFinal();
+            break;
         default:
+            console.log("Todos");
+            if(estado46(cadena[posicion])){
+                posicion++;
+                verificarEstoFinal();
+            }else if(estado47(cadena[posicion])){
+                posicion++;
+                verificarEstoFinal();
+            }
+            else if(estado48(cadena[posicion])){
+                posicion++;
+                verificarEstoFinal();
+            }
+            else if(estado49(cadena[posicion])){
+                posicion++;
+                verificarEstoFinal();
+            }
+            else{
+                console.log("entra en cualquiera");
+                estado51(cadena[posicion]);
+            }
             
-                alert("fallo");
+            
+            
+            
+            // if(verificarTamanio){
+            //     posicion++;
+            //     verificarEstoFinal();
+            // }
+            // verificarEstoFinal();
             
             
             break;
@@ -126,7 +168,8 @@ function estado1(letra){
         posicion++;
         estado2(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 
@@ -136,7 +179,8 @@ function estado2(letra){
         posicion++;
         estado3(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado3(letra){
@@ -145,7 +189,8 @@ function estado3(letra){
         posicion++;
         estado4(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado4(letra){
@@ -154,7 +199,8 @@ function estado4(letra){
         posicion++;
         estado5(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado5(letra){
@@ -163,7 +209,8 @@ function estado5(letra){
         posicion++;
         estado6(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado6(letra){
@@ -172,7 +219,8 @@ function estado6(letra){
         posicion++;
         estado7(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado7(letra){
@@ -181,77 +229,78 @@ function estado7(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado50(letra){
 
     switch(letra){
         case "e":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"variable"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"variable"+"</td><td>";
                 posicion++;
-                alert("variable");
+                console.log("variable");
                 verificarEstoFinal();
                 //verificarEstoA
         break;
         case "o":
             if(cadena[posicion-2]==="e"){
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"Entero"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"Entero"+"</td><td>";
                 posicion++;
-                alert("entero");
+                console.log("entero");
                 verificarEstoFinal();
             }else if(cadena[posicion-2]==="a"){
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"booleano"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"booleano"+"</td><td>";
                 posicion++;
-                alert("booleano");
+                console.log("booleano");
                 verificarEstoFinal();
             }else if(cadena[posicion-2]==="i"){
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"sino"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"sino"+"</td><td>";
                 posicion++;
-                alert("sino");
+                console.log("sino");
                 verificarEstoFinal();
             }
         break;
         case "l":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"decimal"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"decimal"+"</td><td>";
                 posicion++;
-                alert("decimal");
+                console.log("decimal");
                 verificarEstoFinal();
         break;
         case "a":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
                 posicion++;
-                alert("");
+                console.log("");
                 verificarEstoFinal();
         break;
         case "i":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"si"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"si"+"</td><td>";
                 posicion++;
-                alert("si");
+                console.log("si");
                 verificarEstoFinal();
         break;
         case "s":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"mientras"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"mientras"+"</td><td>";
                 posicion++;
-                alert("mientras");
+                console.log("mientras");
                 verificarEstoFinal();
         break;
         case "r":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+"hacer"+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+"hacer"+"</td><td>";
                 posicion++;
-                alert("hacer");
+                console.log("hacer");
                 verificarEstoFinal();
         break;
         case "":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
                 posicion++;
-                alert("");
+                console.log("");
                 verificarEstoFinal();
         break;
-        case "":
-                datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
+        case " ":
+                // datos.innerHTML = datos.innerHTML+"<tr><td>"+""+"</td><td>";
                 posicion++;
-                alert("Termino");
+                console.log("Termino");
         break;
     }
 }
@@ -265,7 +314,8 @@ function estado8(letra){
         posicion++;
         estado9(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado9(letra){
@@ -273,7 +323,8 @@ function estado9(letra){
         posicion++;
         estado10(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado10(letra){
@@ -281,7 +332,8 @@ function estado10(letra){
         posicion++;
         estado11(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado11(letra){
@@ -289,7 +341,8 @@ function estado11(letra){
         posicion++;
         estado12(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado12(letra){
@@ -297,7 +350,8 @@ function estado12(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado13(letra){
@@ -305,7 +359,8 @@ function estado13(letra){
         posicion++;
         estado14(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado14(letra){
@@ -313,7 +368,8 @@ function estado14(letra){
         posicion++;
         estado15(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado15(letra){
@@ -321,7 +377,8 @@ function estado15(letra){
         posicion++;
         estado16(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado16(letra){
@@ -329,7 +386,8 @@ function estado16(letra){
         posicion++;
         estado17(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado17(letra){
@@ -337,7 +395,8 @@ function estado17(letra){
         posicion++;
         estado18(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado18(letra){
@@ -345,7 +404,8 @@ function estado18(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado19(letra){
@@ -353,6 +413,8 @@ function estado19(letra){
         posicion++;
         estado20(cadena[posicion]);
     }else{
+        posicion--;
+        estado51(cadena[posicion]);
 
     }
 }
@@ -361,7 +423,8 @@ function estado20(letra){
         posicion++;
         estado21(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado21(letra){
@@ -369,7 +432,8 @@ function estado21(letra){
         posicion++;
         estado22(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado22(letra){
@@ -377,7 +441,8 @@ function estado22(letra){
         posicion++;
         estado23(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado23(letra){
@@ -385,7 +450,8 @@ function estado23(letra){
         posicion++;
         estado24(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado24(letra){
@@ -393,7 +459,8 @@ function estado24(letra){
         posicion++;
         estado25(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado25(letra){
@@ -401,7 +468,8 @@ function estado25(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado26(letra){
@@ -409,7 +477,8 @@ function estado26(letra){
         posicion++;
         estado27(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado27(letra){
@@ -417,7 +486,8 @@ function estado27(letra){
         posicion++;
         estado28(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado28(letra){
@@ -425,7 +495,8 @@ function estado28(letra){
         posicion++;
         estado29(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado29(letra){
@@ -433,7 +504,8 @@ function estado29(letra){
         posicion++;
         estado30(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado30(letra){
@@ -441,15 +513,18 @@ function estado30(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado31(letra){
-    if(letra==="s" && verificarTamanio()){
-        posicion++;
-        estado50(cadena[posicion]);
+    if(letra==="s" && verificarTamanio() ){
+            console.log("Entro is");
+            posicion++;
+            estado50(cadena[posicion]);
     }else{
-
+        console.log("Entro no s");
+        estado51(cadena[posicion]);
     }
 }
 function estado32(letra){
@@ -457,7 +532,8 @@ function estado32(letra){
         posicion++;
         estado33(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado33(letra){
@@ -465,7 +541,8 @@ function estado33(letra){
         posicion++;
         estado34(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado34(letra){
@@ -473,71 +550,106 @@ function estado34(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado35(letra){
     if(letra==="m" && verificarTamanio()){
+        console.log("letra m")
         posicion++;
         estado36(cadena[posicion]);
     }else{
-
+        console.log("letra salio")
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado36(letra){
     if(letra==="i" && verificarTamanio()){
+        console.log("letra i")
         posicion++;
         estado37(cadena[posicion]);
     }else{
-
+        console.log("letra salio")
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado37(letra){
     if(letra==="e" && verificarTamanio()){
+        console.log("letra e")
         posicion++;
         estado38(cadena[posicion]);
     }else{
-
+        console.log("letra salio")
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado38(letra){
     if(letra==="n" && verificarTamanio()){
+        console.log("letra n")
         posicion++;
-        estado50(cadena[posicion]);
+        estado39(cadena[posicion]);
     }else{
-
+        console.log("letra salio")
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado39(letra){
+    
     if(letra==="t" && verificarTamanio()){
+        console.log("letra t")
         posicion++;
         estado40(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado40(letra){
     if(letra==="r" && verificarTamanio()){
+        console.log("letra r")
         posicion++;
-        estado50(cadena[posicion]);
+        estado41(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado41(letra){
     if(letra==="a" && verificarTamanio()){
+        console.log("letra a")
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
+
+function estado53(letra){
+    if(letra==="s" && verificarTamanio()){
+        console.log("letra s")
+        posicion++;
+        estado50(cadena[posicion]);
+    }else{
+        posicion--;
+        estado51(cadena[posicion]);
+    }
+}
+
+
+
 function estado42(letra){
     if(letra==="h" && verificarTamanio()){
         posicion++;
         estado43(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado43(letra){
@@ -545,7 +657,8 @@ function estado43(letra){
         posicion++;
         estado44(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado44(letra){
@@ -553,7 +666,8 @@ function estado44(letra){
         posicion++;
         estado45(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 function estado45(letra){
@@ -561,51 +675,68 @@ function estado45(letra){
         posicion++;
         estado50(cadena[posicion]);
     }else{
-
+        posicion--;
+        estado51(cadena[posicion]);
     }
 }
 
 
 
 //adlfkalkdfkasjdlkfjasdlkjflaksdjflkjasdlkfjlaskdjflkajsdlfkjasldkjflakdsjflkajdslkfjasdlkjflakdsjflkajdslfkjas
+//opradores analiza posionc de arreglo
 function estado46(letra){
+    console.log("Entra 1");
     for(i = 0;i<operadores.length;i++){
         if(letra===operadores[i]){
-            posicion++;
-            verificarEstoFinal();
-        }else{
-            
+            console.log("Es un signo");
+            return true;
         }
     }
+    return false;
     
 }
 
-
+//analiza los  signos
 function estado47(letra){
+    console.log("Entra 2");
     for(i = 0;i<signos.length;i++){
-        if(letra===signos[i]){
-            posicion++;
-            verificarEstoFinal();
-        }else{
-            
+        if(letra===signos[i]  && verificarTamanio()){
+            console.log("Es un signo");
+            return true;
         }
     }
+    return false;
 }
+//analiza el numero
 function estado48(letra){
+    console.log("Entra 3");
     for(i = 0;i<numeros.length;i++){
-        if(letra===signos[i]){
-            posicion++;
-            verificarEstoFinal();
-        }else{
+        if(letra===numeros[i]  && verificarTamanio()){
+            console.log("Es un entero");
             
+            return true;
+        }else if(letra==="."  && verificarTamanio()){
+            console.log("Es un Flotante");
+            
+            return true;
         }
     }
+    return false;
 }
 function estado49(letra){
-    if(letra===l){
-        posicion++;
-        estado50(cadena[posicion]);
-    }else{
-
+    console.log("Entra 4");
+    for(i = 0;i<agrupadores.length;i++){
+        if(letra===agrupadores[i]  && verificarTamanio()){
+            console.log("Es un Agrupador")
+            return true;
+        }
     }
+    return false;
+}
+function estado51(letra){
+        console.log("es una letra");
+        posicion++;
+        verificarEstoFinal();
+
+       
 }
