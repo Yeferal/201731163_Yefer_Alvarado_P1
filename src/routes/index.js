@@ -33,7 +33,7 @@ router.post('/solicitar', (req, res) => {
 
     res.render('page-analizador', { max: 15 });
 });
-
+//envia los datos obtenidos al frontend
 router.get('/obtener', (req, res) => {  
     analisis.verificar();
     var tip = analisis.tipoT();
@@ -48,7 +48,7 @@ router.get('/obtener', (req, res) => {
     }, 35 );
 });
 
-
+//ruta inicial de las paginas
 router.get('/', (req, res) => {
     res.render('page-usuario', { max: 15 });
 

@@ -31,7 +31,7 @@ const sendData = () => {
         });
 
 };
-
+//recibe la informacion enviada por el backend
 const getData = () => {
     console.log("Holaaa");
     numeros++;
@@ -47,7 +47,7 @@ const getData = () => {
             console.log(error);
         });
 };
-
+//verifica el tipo de datos que ira a cada tabla
 function enviarTabla(tipot,palabra,fila){
     switch(tipot){
         case "Palabra Reservada":
