@@ -42,7 +42,8 @@ router.get('/obtener', (req, res) => {
         res.status(200).json({
             filas: analisis.filas(),
             tipo: analisis.tipoT(),
-            palabra: analisis.informacion()
+            palabra: analisis.informacion(),
+            numero: analisis.numeroTokens()
         });
     }, 35 );
 });

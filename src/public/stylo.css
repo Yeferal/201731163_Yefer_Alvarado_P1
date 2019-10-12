@@ -11,3 +11,62 @@ body{
     border: #000000 2px;
     border-block: 2px;
 }
+.area{
+    position: relative;
+}
+.contenedor1{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor2{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor3{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor4{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor5{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor6{
+    position:relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor7{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}
+.contenedor8{
+    position: relative;
+    width: 500px;
+    background: #8ea9e4;
+    padding: 20px 30px;
+    margin: 5px;
+}

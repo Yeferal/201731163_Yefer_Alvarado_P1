@@ -10,7 +10,11 @@ var signos = ["“",";","”"];
 var numeros = ["0","1","2","3","4","5","6","7","8","9"];
 var tipo;
 var fila;
+var cantidad;
 
+module.exports.numeroTokens = function(){
+    return cantidad;
+}
 module.exports.informacion = function(){
     return tmp;
 }
@@ -27,6 +31,7 @@ module.exports.capturar = function(texto1){
     cadena = texto;
     posicion=0;
     fila=1;
+    cantidad=0;
     tmp = "";
     tipo = "";
     // document.write('Holllliiiiis');
@@ -38,6 +43,7 @@ function verificarEstoFinal(){
     if(posicion<cadena.length){
         tmp = "";
         tipo = "";
+        cantidad++;
         verificarEstoA(cadena[posicion]);
     }else{
         console.log("Todo termino");

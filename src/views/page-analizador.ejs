@@ -13,14 +13,18 @@
       <input type="file" id="fileinput" (change)="onFileChange($event)"/>
       <h3>Contenido del archivo:</h3>
       <pre id="contenido-archivo1"></pre>
-      <textarea name="contenido-archivo" id="contenido-archivo" cols="60" rows="20" disabled="true">
+      <textarea name="contenido-archivo" id="contenido-archivo" class="area" cols="60" rows="20" disabled="true">
 
       </textarea><br>
       <input type="button" name="bote" id="getButton" value="Analizar" style="display:none"/><br>
       <input type="button" name="bote" id="posButton" value="Obtener" style="display:none"/><br>
-    </form>
+    </form><br>
+    <h1 id="cantida">
       
-    <table class="table" id="datos" border="1" cellpadding="1">
+    </h1>
+    <div class="contenedor1"> 
+        <p>Todos</p>   
+    <table class="table" id="datos">
       <thead class="thead-dark">
         <tr>
             <th scope="col">Fila</th>
@@ -31,6 +35,93 @@
       <tbody>
 
     </table>
+  </div><br>
+
+  <div class="contenedor2">
+    <p>Palabra Reservada</p>  
+      <table class="table" id="datos1">
+        <thead class="thead-dark">
+          <tr>
+              <th scope="col">Fila</th>
+            <th scope="col">Token</th>
+          </tr>
+        </thead>
+        <tbody>
+  
+      </table>
+    </div><br>
+
+    <div class="contenedor3">
+        <p>Operador</p>  
+        <table class="table" id="datos2">
+          <thead class="thead-dark">
+            <tr>
+                <th scope="col">Fila</th>
+              <th scope="col">Token</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+        </table>
+      </div><br>
+
+      <div class="contenedor4">
+          <p>Agrupación</p>  
+          <table class="table" id="datos3">
+            <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Fila</th>
+                <th scope="col">Token</th>
+              </tr>
+            </thead>
+            <tbody>
+      
+          </table>
+        </div><br>
+
+        <div class="contenedor5">
+            <p>Signo</p>  
+            <table class="table" id="datos4">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fila</th>
+                  <th scope="col">Token</th>
+                </tr>
+              </thead>
+              <tbody>
+        
+            </table>
+          </div><br>
+
+          <div class="contenedor6">
+              <p>Número entero</p>  
+              <table class="table" id="datos5">
+                <thead class="thead-dark">
+                  <tr>
+                      <th scope="col">Fila</th>
+                    <th scope="col">Token</th>
+                  </tr>
+                </thead>
+                <tbody>
+          
+              </table>
+            </div><br>
+
+            <div class="contenedor7">
+                <p>Identificador</p>  
+                <table class="table" id="datos6">
+                  <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Fila</th>
+                      <th scope="col">Token</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+                </table>
+              </div><br>
+
+
 
 
       <% console.log("Estamo en Analizador"); 
