@@ -3,7 +3,7 @@ const boton = document.querySelector('#nombre1');
 
 const urlp = "http://localhost:3000/analizador";
 
-
+//encia los datos a la ruta establecida
 const getData = () => {
 
     axios.post('http://localhost:3000/postusers', {

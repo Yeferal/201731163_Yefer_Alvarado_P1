@@ -8,39 +8,25 @@ var operadores = ["+","-","*","/","%","=","==","<",">",">=","<="];
 var agrupadores = ["(",")","{","}"];
 var signos = ["\"",";"];
 var numeros = ["0","1","2","3","4","5","6","7","8","9"];
-function encadenar(){
-    // texto=texto1;
-    // cadena = (texto.value).split("");
-    var nombre= document.getElementById("nombre1");
-    cadena=(nombre.value).split("");
-    posicion=0;
-    
-    // alert("nombre: "+cadena);
-    
-    // verificarEstoA(cadena[posicion]);
-}
+
 module.exports.capturar = function(texto1){
     texto=texto1;
     cadena = texto;
     posicion=0;
-    console.log(cadena);
     // document.write('Holllliiiiis');
     verificarEstoA(cadena[0]);
 }
 
-
+//verificar i ya se ah llegado al final del texto
 function verificarEstoFinal(){
     if(posicion<cadena.length){
-        console.log(verificarTamanio);
-        console.log("tamino1: "+cadena.length);
-        console.log("tamino2: "+posicion);
+
         verificarEstoA(cadena[posicion]);
     }else{
-        console.log(verificarTamanio);
         console.log("Todo termino");
     }
 }
-
+//verifica el tamanio del texto
 function verificarTamanio(){
     if(posicion<cadena.length){
         return true;
@@ -48,10 +34,10 @@ function verificarTamanio(){
     console.log("Termino");
     return false;
 }
-
+//este es el primer estado que analiza los estados iniciales
 function verificarEstoA(letra){
 
-    console.log("h:"+letra+":h");
+    console.log("tOken: "+letra);
     switch (letra) {
         case "b":
             
@@ -88,7 +74,6 @@ function verificarEstoA(letra){
                     estado32(cadena[posicion]);
                 
                 }else if(cadena[posicion+1]==="i"){
-                    console.log(cadena[posicion]+cadena[posicion+1])
                     estado31(cadena[posicion]);
                 }
                 else{
@@ -103,7 +88,6 @@ function verificarEstoA(letra){
             estado1(cadena[posicion]);
             break;
         case '':
-                console.log("sin espacion");
                     if(verificarTamanio){
                         posicion++;
                         verificarEstoFinal();
@@ -112,7 +96,6 @@ function verificarEstoA(letra){
                     }
             break;
         case ' ':
-                console.log("especio");
                     if(verificarTamanio){
                         posicion++;
                         verificarEstoFinal();
@@ -125,7 +108,6 @@ function verificarEstoA(letra){
                     verificarEstoFinal();
             break;
         default:
-            console.log("Todos");
             if(estado46(cadena[posicion])){
                 posicion++;
                 verificarEstoFinal();
@@ -145,23 +127,12 @@ function verificarEstoA(letra){
                 console.log("entra en cualquiera");
                 estado51(cadena[posicion]);
             }
-            
-            
-            
-            
-            // if(verificarTamanio){
-            //     posicion++;
-            //     verificarEstoFinal();
-            // }
-            // verificarEstoFinal();
-            
-            
             break;
     }
 
 
 }
-
+//los siguientes metodos son los estados de evaluzacion de cada caractes para el automata
 function estado1(letra){
     if(letra==="v" && verificarTamanio()){
         
@@ -233,6 +204,7 @@ function estado7(letra){
         estado51(cadena[posicion]);
     }
 }
+//este es el estado final de aceptacion de los tokens
 function estado50(letra){
 
     switch(letra){
@@ -519,11 +491,9 @@ function estado30(letra){
 }
 function estado31(letra){
     if(letra==="s" && verificarTamanio() ){
-            console.log("Entro is");
             posicion++;
             estado50(cadena[posicion]);
     }else{
-        console.log("Entro no s");
         estado51(cadena[posicion]);
     }
 }
@@ -556,44 +526,36 @@ function estado34(letra){
 }
 function estado35(letra){
     if(letra==="m" && verificarTamanio()){
-        console.log("letra m")
         posicion++;
         estado36(cadena[posicion]);
     }else{
-        console.log("letra salio")
         posicion--;
         estado51(cadena[posicion]);
     }
 }
 function estado36(letra){
     if(letra==="i" && verificarTamanio()){
-        console.log("letra i")
         posicion++;
         estado37(cadena[posicion]);
     }else{
-        console.log("letra salio")
         posicion--;
         estado51(cadena[posicion]);
     }
 }
 function estado37(letra){
     if(letra==="e" && verificarTamanio()){
-        console.log("letra e")
         posicion++;
         estado38(cadena[posicion]);
     }else{
-        console.log("letra salio")
         posicion--;
         estado51(cadena[posicion]);
     }
 }
 function estado38(letra){
     if(letra==="n" && verificarTamanio()){
-        console.log("letra n")
         posicion++;
         estado39(cadena[posicion]);
     }else{
-        console.log("letra salio")
         posicion--;
         estado51(cadena[posicion]);
     }
@@ -601,7 +563,6 @@ function estado38(letra){
 function estado39(letra){
     
     if(letra==="t" && verificarTamanio()){
-        console.log("letra t")
         posicion++;
         estado40(cadena[posicion]);
     }else{
@@ -611,7 +572,6 @@ function estado39(letra){
 }
 function estado40(letra){
     if(letra==="r" && verificarTamanio()){
-        console.log("letra r")
         posicion++;
         estado41(cadena[posicion]);
     }else{
@@ -621,7 +581,6 @@ function estado40(letra){
 }
 function estado41(letra){
     if(letra==="a" && verificarTamanio()){
-        console.log("letra a")
         posicion++;
         estado50(cadena[posicion]);
     }else{
@@ -632,7 +591,6 @@ function estado41(letra){
 
 function estado53(letra){
     if(letra==="s" && verificarTamanio()){
-        console.log("letra s")
         posicion++;
         estado50(cadena[posicion]);
     }else{
@@ -685,7 +643,6 @@ function estado45(letra){
 //adlfkalkdfkasjdlkfjasdlkjflaksdjflkjasdlkfjlaskdjflkajsdlfkjasldkjflakdsjflkajdslkfjasdlkjflakdsjflkajdslfkjas
 //opradores analiza posionc de arreglo
 function estado46(letra){
-    console.log("Entra 1");
     for(i = 0;i<operadores.length;i++){
         if(letra===operadores[i]){
             console.log("Es un signo");
@@ -698,7 +655,6 @@ function estado46(letra){
 
 //analiza los  signos
 function estado47(letra){
-    console.log("Entra 2");
     for(i = 0;i<signos.length;i++){
         if(letra===signos[i]  && verificarTamanio()){
             console.log("Es un signo");
@@ -709,7 +665,6 @@ function estado47(letra){
 }
 //analiza el numero
 function estado48(letra){
-    console.log("Entra 3");
     for(i = 0;i<numeros.length;i++){
         if(letra===numeros[i]  && verificarTamanio()){
             console.log("Es un entero");
@@ -724,7 +679,6 @@ function estado48(letra){
     return false;
 }
 function estado49(letra){
-    console.log("Entra 4");
     for(i = 0;i<agrupadores.length;i++){
         if(letra===agrupadores[i]  && verificarTamanio()){
             console.log("Es un Agrupador")
@@ -734,9 +688,7 @@ function estado49(letra){
     return false;
 }
 function estado51(letra){
-        console.log("es una letra");
+        console.log("es una identificador");
         posicion++;
         verificarEstoFinal();
-
-       
 }

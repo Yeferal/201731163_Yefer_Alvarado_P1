@@ -1,3 +1,4 @@
+//lee el archivo y lo escribe en el texta arez
 function leerArchivo(e) {
   var archivo = e.target.files[0];
   if (!archivo) {
