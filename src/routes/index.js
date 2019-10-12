@@ -35,13 +35,14 @@ router.post('/solicitar', (req, res) => {
 });
 
 router.get('/obtener', (req, res) => {  
-    
-
+    analisis.verificar();
+    var tip = analisis.tipoT();
+    console.log("info: "+tip);
     setTimeout(()=>{
         res.status(200).json({
-            usuario: 'Yefer',
-            id: arreglo,
-            carne: '200'
+            filas: analisis.filas(),
+            tipo: analisis.tipoT(),
+            palabra: analisis.informacion()
         });
     }, 35 );
 });

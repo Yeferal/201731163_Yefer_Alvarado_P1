@@ -1,5 +1,6 @@
 const respuesta = document.querySelector('#contenido-archivo');
 const boton = document.querySelector('#nombre1');
+const tabla = document.querySelector('#datos');
 
 const urlp = "http://localhost:3000/analizador";
 const url = "http://localhost:3000/obtener";
@@ -26,6 +27,9 @@ const getData = () => {
     console.log("Holaaa");
     axios.get(url).then(response => {
             console.log(response.data);
+            console.log(response.data.palabra);
+            tabla.innerHTML = tabla.innerHTML +"<tr><td>"+response.data.filas+"</td><br><td>"+response.data.palabra+"</td><br><td>"+response.data.tipo+"</td><tr>";
+            console.log({tabla});
         })
         .catch(error => {
             console.log(error);
